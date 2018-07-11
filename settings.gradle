@@ -1,4 +1,4 @@
-include ':main'
+include ':main', ':main-screen'
 project(':main').projectDir = new File(rootDir, 'sources/base/main')
 
 include ':common'
@@ -6,3 +6,7 @@ project(':common').projectDir = new File(rootDir, 'sources/base/common')
 
 include ':network'
 project(':network').projectDir = new File(rootDir, 'sources/base/network')
+
+include ':main-screen'
+project(':main-screen').projectDir = new File(rootDir, 'sources/feature/main-screen')
+
