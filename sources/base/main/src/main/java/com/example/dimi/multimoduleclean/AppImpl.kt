@@ -3,7 +3,7 @@ package com.example.dimi.multimoduleclean
 import android.app.Application
 import com.example.dimi.multimoduleclean.di.AppComponent
 import com.example.dimi.common.di.AppProvider
-import com.example.dimi.common.NetworkClient
+import com.example.dimi.common.network.NetworkClient
 import javax.inject.Inject
 
 class AppImpl : Application(), App {

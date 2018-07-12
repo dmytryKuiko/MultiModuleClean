@@ -1,8 +1,10 @@
 package com.example.dimi.di
 
-import com.example.dimi.common.NetworkClient
+import com.example.dimi.common.network.NetworkClient
+import com.example.dimi.common.network.RetrofitModel
 import dagger.Module
 import dagger.Provides
+import io.reactivex.Single
 
 @Module
 class MainScreenModule {
@@ -12,4 +14,7 @@ class MainScreenModule {
 
     @Provides
     fun provideString(networkClient: NetworkClient): String = networkClient.toString()
+
+    @Provides
+    fun provideModel(networkClient: NetworkClient): Single<RetrofitModel> = networkClient.getNetworkService()
 }
