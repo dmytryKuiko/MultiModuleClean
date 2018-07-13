@@ -1,21 +1,19 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'kotlin-android-extensions'
-
-apply plugin: 'kotlin-kapt'
-
 android {
-    compileSdkVersion 27
+    compileSdkVersion androidCompileSdkVersion
     defaultConfig {
-        applicationId "com.example.dimi.multimoduleclean"
-        minSdkVersion 21
-        targetSdkVersion 27
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,20 +24,10 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':common')
-    implementation project(':network')
-    implementation project(':main-screen')
-    implementation project(':database')
-
     implementation libraries.kotlin
     implementation libraries.appCompatV7
-    implementation libraries.constraintLayout
     testImplementation libraries.junit4
     androidTestImplementation libraries.testRunner
     androidTestImplementation libraries.espresso
-    kapt libraries.daggerCompiler
-    implementation libraries.dagger
-
-    implementation libraries.archCoreRuntime
 
 }

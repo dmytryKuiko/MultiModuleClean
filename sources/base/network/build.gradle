@@ -1,56 +1,36 @@
-apply plugin: 'com.android.library'
-
-apply plugin: 'kotlin-android'
+apply from: rootProject.file('base-android.gradle')
 
 apply plugin: 'kotlin-kapt'
 
 
 android {
-    compileSdkVersion 27
-    defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-
-    buildTypes {
+        buildTypes {
         debug {
             buildConfigField 'String', "API_KEY", Movie_ApiKey
         }
         release {
             buildConfigField 'String', "API_KEY", Movie_ApiKey
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     implementation project(':common')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     //Dagger2
-    kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
-    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    kapt libraries.daggerCompiler
+    implementation libraries.dagger
 
     //Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation libraries.retrofit
+    implementation libraries.retrofitRxJava2
 
     //GSON
-    implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation libraries.gson
+    implementation libraries.gsonConverter
 
     //OkHttp
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation libraries.okHttp3
+    implementation libraries.okHttpInterceptor
 }
