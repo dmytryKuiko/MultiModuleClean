@@ -15,14 +15,14 @@ class NetworkClientImpl
 
     private val retrofitService: RetrofitService by lazy {
         Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com/")
+            .baseUrl(SERVER_URL)
             .client(getOkHttp())
             .addConverterFactory(getConverterFactory())
             .addCallAdapterFactory(getCallAdapterFactory())
             .build().create(RetrofitService::class.java)
     }
 
-    override fun getRetrofitModel(): Single<out RetrofitModel> = retrofitService.getData()
+    override fun getRetrofitModel(): Single<out Movie> = retrofitService.getData()
 
     private fun getOkHttp(): OkHttpClient = OkHttpClient.Builder().build()
 
@@ -30,4 +30,8 @@ class NetworkClientImpl
 
     private fun getCallAdapterFactory(): RxJava2CallAdapterFactory =
         RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io())
+
+    companion object {
+        const val SERVER_URL = "https://api.themoviedb.org/"
+    }
 }
