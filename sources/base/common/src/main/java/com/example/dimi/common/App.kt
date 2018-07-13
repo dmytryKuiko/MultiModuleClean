@@ -1,4 +1,4 @@
-package com.example.dimi.multimoduleclean
+package com.example.dimi.common
 
 import android.content.Context
 import com.example.dimi.common.di.AppProvider
