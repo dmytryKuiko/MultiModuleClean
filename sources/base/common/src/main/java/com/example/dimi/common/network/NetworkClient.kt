@@ -3,5 +3,7 @@ package com.example.dimi.common.network
 import io.reactivex.Single
 
 interface NetworkClient {
-    fun getRetrofitModel(): Single<out Movie>
+    fun getMovieById(id: Int): Single<out Movie>
+
+    fun getGenres(): Single<out GenreWrapper>
 }

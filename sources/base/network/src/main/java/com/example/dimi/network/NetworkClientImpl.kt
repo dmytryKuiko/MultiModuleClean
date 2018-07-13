@@ -1,5 +1,7 @@
 package com.example.dimi.network
 
+import com.example.dimi.common.network.Genre
+import com.example.dimi.common.network.GenreWrapper
 import com.example.dimi.common.network.NetworkClient
 import com.example.dimi.common.network.Movie
 import com.example.dimi.network.di.HeaderInterceptor
@@ -23,7 +25,9 @@ class NetworkClientImpl
             .build().create(RetrofitService::class.java)
     }
 
-    override fun getRetrofitModel(): Single<out Movie> = retrofitService.getData()
+    override fun getGenres(): Single<out GenreWrapper> = retrofitService.getGenres()
+
+    override fun getMovieById(id: Int): Single<out Movie> = retrofitService.getMovieById(id)
 
     private fun getOkHttp(): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(HeaderInterceptor())
