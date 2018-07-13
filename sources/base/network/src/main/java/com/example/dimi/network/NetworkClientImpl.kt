@@ -1,7 +1,7 @@
 package com.example.dimi.network
 
 import com.example.dimi.common.network.NetworkClient
-import com.example.dimi.common.network.RetrofitModel
+import com.example.dimi.common.network.Movie
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient

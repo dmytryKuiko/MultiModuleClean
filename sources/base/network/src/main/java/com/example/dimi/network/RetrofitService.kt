@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface RetrofitService {
 
     @GET("/posts/1")
-    fun getData(): Single<RetrofitModelRetrofitImpl>
+    fun getData(): Single<MovieNetwork>
 }

@@ -6,12 +6,7 @@ import com.example.dimi.common.network.NetworkClient
 import com.example.dimi.di.MainScreenComponent
 import com.example.dimi.common.App
 import com.example.dimi.common.database.DatabaseClient
-import com.example.dimi.common.network.RetrofitModel
-import io.reactivex.Completable
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Action
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -49,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             )
 
 //        Completable.fromCallable {
-//            database.insertData(object : RetrofitModel {
+//            database.insertData(object : Movie {
 //                override val userId: Int
 //                    get() = 11
 //                override val id: Int

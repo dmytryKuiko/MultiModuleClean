@@ -3,8 +3,7 @@ package com.example.dimi.database
 import android.arch.persistence.room.Room
 import com.example.dimi.common.App
 import com.example.dimi.common.database.DatabaseClient
-import com.example.dimi.common.di.AppProvider
-import com.example.dimi.common.network.RetrofitModel
+import com.example.dimi.common.network.Movie
 import com.example.dimi.database.room.AppDatabase
 import com.example.dimi.database.room.DATABASE_NAME
 import com.example.dimi.database.room.RetrofitModelDao
@@ -24,10 +23,10 @@ class DatabaseClientImpl
             .retrofitModelDao()
     }
 
-    override fun getData(): Flowable<out List<RetrofitModel>> = dao.getAllProducts()
+    override fun getData(): Flowable<out List<Movie>> = dao.getAllProducts()
 
-    override fun insertData(model: RetrofitModel) {
-        RetrofitModelRoomImpl(model.userId, model.id, model.title, model.body)
+    override fun insertData(model: Movie) {
+        MovieDatabase(model.userId, model.id, model.title, model.body)
             .also { dao.insert(it) }
     }
 }
