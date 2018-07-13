@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface RetrofitService {
 
-    @GET("/posts/1")
+    @GET("3/movie/11")
     fun getData(): Single<MovieNetwork>
 }

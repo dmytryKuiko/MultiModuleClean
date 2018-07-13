@@ -26,7 +26,7 @@ class DatabaseClientImpl
     override fun getData(): Flowable<out List<Movie>> = dao.getAllProducts()
 
     override fun insertData(model: Movie) {
-        MovieDatabase(model.userId, model.id, model.title, model.body)
+        MovieDatabase(model.id, model.title)
             .also { dao.insert(it) }
     }
 }

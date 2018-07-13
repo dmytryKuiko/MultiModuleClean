@@ -2,6 +2,7 @@ package com.example.dimi.network
 
 import com.example.dimi.common.network.NetworkClient
 import com.example.dimi.common.network.Movie
+import com.example.dimi.network.di.HeaderInterceptor
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
@@ -24,7 +25,9 @@ class NetworkClientImpl
 
     override fun getRetrofitModel(): Single<out Movie> = retrofitService.getData()
 
-    private fun getOkHttp(): OkHttpClient = OkHttpClient.Builder().build()
+    private fun getOkHttp(): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(HeaderInterceptor())
+        .build()
 
     private fun getConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
 
