@@ -5,4 +5,7 @@ import dagger.Component
 
 @Component(modules = [(NetworkModule::class)])
 interface NetworkComponent : NetworkProvider {
+    companion object {
+        fun init(): NetworkProvider = DaggerNetworkComponent.builder().build()
+    }
 }
