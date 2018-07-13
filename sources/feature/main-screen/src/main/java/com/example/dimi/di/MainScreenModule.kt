@@ -10,11 +10,5 @@ import io.reactivex.Single
 class MainScreenModule {
 
     @Provides
-    fun provideInt(networkClient: NetworkClient): Int = networkClient.getInt()
-
-    @Provides
     fun provideString(networkClient: NetworkClient): String = networkClient.toString()
-
-    @Provides
-    fun provideModel(networkClient: NetworkClient): Single<RetrofitModel> = networkClient.getNetworkService()
 }
