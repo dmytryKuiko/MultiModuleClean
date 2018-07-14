@@ -1,12 +1,13 @@
 package com.example.dimi.di
 
-import com.example.dimi.common.network.NetworkClient
+import com.example.dimi.NavigatorImpl
+import com.example.dimi.common.Navigator
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 
 @Module
-class MainScreenModule {
+abstract class MainScreenModule {
 
-    @Provides
-    fun provideString(networkClient: NetworkClient): String = networkClient.toString()
+    @Binds
+    internal abstract fun bindNavigator(navigatorImpl: NavigatorImpl): Navigator
 }

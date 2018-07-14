@@ -1,0 +1,16 @@
+apply from: rootProject.file('base-android.gradle')
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    buildToolsVersion androidBuildToolsVersion
+}
+
+dependencies {
+    implementation project(':common')
+    implementation libraries.kotlinReflect
+    implementation libraries.supportV4
+    implementation libraries.constraintLayout
+    kapt libraries.daggerCompiler
+    implementation libraries.dagger
+}

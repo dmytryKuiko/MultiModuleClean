@@ -1,7 +1,6 @@
-package com.example.dimi.network.di
+package com.example.dimi.network
 
 import android.util.Base64
-import com.example.dimi.network.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject
@@ -13,7 +12,10 @@ class HeaderInterceptor
         val request = chain.request()
         val httpUrlBuilder = request.url().newBuilder()
 
-        val newUrl = httpUrlBuilder.addQueryParameter(API_KEY, API_KEY_VALUE).build()
+        val newUrl = httpUrlBuilder.addQueryParameter(
+            API_KEY,
+            API_KEY_VALUE
+        ).build()
         val requestBuilder = request.newBuilder().url(newUrl)
 
         return chain.proceed(requestBuilder.build())

@@ -2,46 +2,48 @@ package com.example.dimi
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.example.dimi.common.network.NetworkClient
 import com.example.dimi.di.MainScreenComponent
 import com.example.dimi.common.App
-import com.example.dimi.common.database.DatabaseClient
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
+import com.example.dimi.common.Main
+import com.example.dimi.common.di.MainProvider
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Main {
 
-    @Inject
-    lateinit var someString: String
-
-    @Inject
-    lateinit var model: NetworkClient
-
-    @Inject
-    lateinit var database: DatabaseClient
+    private val mainScreenComponent: MainScreenComponent by lazy {
+        MainScreenComponent.init((application as App).getAppComponent(), this)
+    }
+//
+//    @Inject
+//    lateinit var model: NetworkClient
+//
+//    @Inject
+//    lateinit var database: DatabaseClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        MainScreenComponent.init((application as App).getAppComponent()).inject(this)
+        mainScreenComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//        model.getMovieById(11).subscribe { t1, t2 ->
+//            var a = 3
+//            a++
+//        }
+//
+//        model.getGenres().subscribe { t1, t2 ->
+//            var a = 3
+//            a++
+//        }
 
-        model.getRetrofitModel().subscribe { t1, t2 ->
-            var a = 3
-            a++
-        }
-
-        database.getData().subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                var a = 3
-                a++
-            },
-                {
-                    var a = 3
-                    a++
-                }
-            )
+//        database.getData().subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe({
+//                var a = 3
+//                a++
+//            },
+//                {
+//                    var a = 3
+//                    a++
+//                }
+//            )
 
 //        Completable.fromCallable {
 //            database.insertData(object : Movie {
@@ -63,4 +65,6 @@ class MainActivity : AppCompatActivity() {
 //                a++
 //            })
     }
+
+    override fun getMainScreenComponent(): MainProvider = mainScreenComponent
 }

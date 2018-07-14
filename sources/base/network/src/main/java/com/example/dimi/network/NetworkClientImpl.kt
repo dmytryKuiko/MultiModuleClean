@@ -1,10 +1,8 @@
 package com.example.dimi.network
 
-import com.example.dimi.common.network.Genre
 import com.example.dimi.common.network.GenreWrapper
 import com.example.dimi.common.network.NetworkClient
 import com.example.dimi.common.network.Movie
-import com.example.dimi.network.di.HeaderInterceptor
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
