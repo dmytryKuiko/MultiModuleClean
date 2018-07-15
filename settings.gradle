@@ -18,3 +18,4 @@ project(':detail').projectDir = new File(rootDir, 'sources/feature/detail')
 
 include ':popular'
 project(':popular').projectDir = new File(rootDir, 'sources/feature/popular')
+

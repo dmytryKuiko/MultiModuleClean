@@ -8,6 +8,7 @@ android {
 
 dependencies {
     implementation project(':common')
+
     implementation libraries.kotlinReflect
     implementation libraries.supportV4
     implementation libraries.constraintLayout

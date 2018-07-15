@@ -10,6 +10,7 @@ dependencies {
 
     implementation libraries.constraintLayout
     implementation libraries.supportV4
+    implementation libraries.supportDesign
     kapt libraries.daggerCompiler
     implementation libraries.dagger
     implementation libraries.rxJava2
