@@ -1,6 +1,6 @@
 package com.example.dimi.common
 
 interface Navigator {
-    fun forward(className: String?)
+    fun forward(id: Int, className: String?)
     fun back(className: String?)
 }
