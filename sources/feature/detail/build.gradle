@@ -7,11 +7,12 @@ android {
 }
 
 dependencies {
-    api project(':common')
+    implementation project(':common')
 
-    api libraries.kotlinReflect
+    implementation libraries.kotlinReflect
     implementation libraries.supportV4
     implementation libraries.constraintLayout
+    implementation libraries.liveData
     kapt libraries.daggerCompiler
     implementation libraries.dagger
 }

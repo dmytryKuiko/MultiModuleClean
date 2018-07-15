@@ -5,15 +5,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
-    implementation project(':detail')
     implementation project(':popular')
+    implementation project(':detail')
 
-    implementation libraries.constraintLayout
-    implementation libraries.supportV4
     implementation libraries.supportDesign
     kapt libraries.daggerCompiler
-    implementation libraries.dagger
     implementation libraries.rxJava2
     implementation libraries.rxAndroid
     implementation libraries.navigation
+    implementation libraries.navigationUI
 }

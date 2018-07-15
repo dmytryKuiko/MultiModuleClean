@@ -1,14 +1,14 @@
 package com.example.dimi.firstfragment
 
+import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.Toolbar
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.ImageButton
 import com.example.dimi.common.BaseFragment
-import com.example.dimi.common.Main
-import com.example.dimi.common.Navigator
+import com.example.dimi.common.main.DrawerController
+import com.example.dimi.common.main.FragmentNavigator
+import com.example.dimi.common.main.Main
+import com.example.dimi.common.main.MainPresenter
 import com.example.dimi.firstfragment.di.DetailComponent
 import kotlinx.android.synthetic.main.fragment_detail.*
 import javax.inject.Inject
@@ -19,8 +19,9 @@ class DetailFragment : BaseFragment() {
         DetailComponent.init((activity as Main).getMainScreenComponent())
     }
 
-    @Inject
-    lateinit var navigator: Navigator
+    private var navigator: FragmentNavigator? = null
+
+    @Inject lateinit var mainPresenter: MainPresenter
 
     override val layoutId: Int
         get() = R.layout.fragment_detail
@@ -30,21 +31,30 @@ class DetailFragment : BaseFragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-            .also {
-               it?.findViewById<Toolbar>(R.id.toolbar)?.setNavigationIcon(R.drawable.ic_arrow_back)
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<ImageButton>(R.id.icon_left).setImageResource(R.drawable.ic_arrow_back)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is FragmentNavigator && context is DrawerController) navigator = context
+        else throw RuntimeException(context.toString() + " must implement FragmentNavigator")
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         button.setOnClickListener {
-            navigator.back(this@DetailFragment::class.qualifiedName)
+            navigator?.back(this@DetailFragment::class.qualifiedName)
         }
+
+        view?.findViewById<ImageButton>(R.id.icon_left)?.setOnClickListener {
+            navigator?.back(this@DetailFragment::class.qualifiedName)
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        navigator = null
     }
 }

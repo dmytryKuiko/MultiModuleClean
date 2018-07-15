@@ -41,5 +41,6 @@ dependencies {
     implementation libraries.dagger
 
     implementation libraries.archCoreRuntime
+    implementation libraries.liveDataCoreRuntime
 
 }

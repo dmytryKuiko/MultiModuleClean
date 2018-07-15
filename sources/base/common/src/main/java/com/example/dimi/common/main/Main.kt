@@ -1,4 +1,4 @@
-package com.example.dimi.common
+package com.example.dimi.common.main
 
 import com.example.dimi.common.di.MainProvider
 

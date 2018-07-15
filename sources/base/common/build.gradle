@@ -3,4 +3,5 @@ apply from: rootProject.file('base-android.gradle')
 dependencies {
     implementation libraries.rxJava2
     implementation libraries.constraintLayout
+    implementation libraries.liveData
 }
