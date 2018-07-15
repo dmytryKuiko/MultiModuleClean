@@ -6,13 +6,14 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.dimi.common.BaseFragment
 import com.example.dimi.common.Main
 import com.example.dimi.common.Navigator
 import com.example.dimi.secondfragment.di.PopularComponent
 import kotlinx.android.synthetic.main.fragment_popular.*
 import javax.inject.Inject
 
-class PopularFragment : Fragment() {
+class PopularFragment : BaseFragment() {
 
     @Inject lateinit var navigator: Navigator
 
@@ -20,15 +21,13 @@ class PopularFragment : Fragment() {
         PopularComponent.init((activity as Main).getMainScreenComponent())
     }
 
+    override val layoutId: Int
+        get() = R.layout.fragment_popular
+
     override fun onCreate(savedInstanceState: Bundle?) {
         detailComponent.inject(this)
         super.onCreate(savedInstanceState)
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_popular, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
