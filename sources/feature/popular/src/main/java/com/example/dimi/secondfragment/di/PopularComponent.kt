@@ -1,9 +1,7 @@
 package com.example.dimi.secondfragment.di
 
-import android.app.Activity
 import com.example.dimi.common.di.MainProvider
-import com.example.dimi.secondfragment.PopularFragment
-import dagger.BindsInstance
+import com.example.dimi.secondfragment.presentation.PopularFragment
 import dagger.Component
 
 @Component(

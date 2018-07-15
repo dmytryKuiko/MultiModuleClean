@@ -1,15 +1,15 @@
-package com.example.dimi.secondfragment
+package com.example.dimi.secondfragment.presentation
 
 
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageButton
 import com.example.dimi.common.BaseFragment
 import com.example.dimi.common.main.DrawerController
 import com.example.dimi.common.main.FragmentNavigator
 import com.example.dimi.common.main.Main
 import com.example.dimi.common.main.MainPresenter
+import com.example.dimi.secondfragment.R
 import com.example.dimi.secondfragment.di.PopularComponent
 import kotlinx.android.synthetic.main.fragment_popular.*
 import javax.inject.Inject

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/popularFragment"
-        android:name="com.example.dimi.secondfragment.PopularFragment"
+        android:name="com.example.dimi.secondfragment.presentation.PopularFragment"
         tools:layout="@layout/fragment_popular"
         android:label="PopularFragment" >
         <action

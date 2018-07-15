@@ -13,7 +13,7 @@ import com.example.dimi.common.main.DrawerController
 import com.example.dimi.common.main.FragmentNavigator
 import com.example.dimi.common.main.Main
 import com.example.dimi.firstfragment.DetailFragment
-import com.example.dimi.secondfragment.PopularFragment
+import com.example.dimi.secondfragment.presentation.PopularFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), Main,

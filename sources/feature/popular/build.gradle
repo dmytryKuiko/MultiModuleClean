@@ -15,4 +15,6 @@ dependencies {
     api libraries.liveData
     kapt libraries.daggerCompiler
     api libraries.dagger
+    implementation libraries.adapterDelegates
+    implementation libraries.recyclerView
 }

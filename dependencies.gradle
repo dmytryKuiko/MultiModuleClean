@@ -8,6 +8,7 @@ ext {
             kotlin : 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.51',
             kotlinReflect : 'org.jetbrains.kotlin:kotlin-reflect:1.2.51',
             appCompatV7 : 'com.android.support:appcompat-v7:27.1.1',
+            recyclerView : 'com.android.support:recyclerview-v7:27.1.1',
             supportV4 : 'com.android.support:support-v4:27.1.1',
             supportDesign : 'com.android.support:design:27.1.1',
             constraintLayout : 'com.android.support.constraint:constraint-layout:1.1.2',
@@ -29,6 +30,7 @@ ext {
             gsonConverter : 'com.squareup.retrofit2:converter-gson:2.4.0',
             okHttp3 : 'com.squareup.okhttp3:okhttp:3.10.0',
             okHttpInterceptor : 'com.squareup.okhttp3:logging-interceptor:3.10.0',
+            adapterDelegates : 'com.hannesdorfmann:adapterdelegates3:3.0.1',
             junit4 : 'junit:junit:4.12',
             testRunner : 'com.android.support.test:runner:1.0.2',
             espresso : 'com.android.support.test.espresso:espresso-core:3.0.2'
