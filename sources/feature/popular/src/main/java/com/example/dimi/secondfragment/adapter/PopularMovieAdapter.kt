@@ -1,4 +1,4 @@
-package com.example.dimi.secondfragment.presentation
+package com.example.dimi.secondfragment.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup

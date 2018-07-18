@@ -8,16 +8,22 @@ import androidx.navigation.ui.NavigationUI
 import com.example.dimi.R
 import com.example.dimi.di.MainScreenComponent
 import com.example.dimi.common.App
+import com.example.dimi.common.database.DatabaseClient
 import com.example.dimi.common.di.MainProvider
 import com.example.dimi.common.main.DrawerController
 import com.example.dimi.common.main.FragmentNavigator
 import com.example.dimi.common.main.Main
+import com.example.dimi.common.network.NetworkClient
 import com.example.dimi.firstfragment.DetailFragment
 import com.example.dimi.secondfragment.presentation.PopularFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), Main,
     FragmentNavigator, DrawerController {
+
+    @Inject lateinit var networkClient: NetworkClient
+    @Inject lateinit var databaseClient: DatabaseClient
 
     private val mainScreenComponent: MainScreenComponent by lazy {
         (application as App).getMainScreenComponent() as MainScreenComponent
@@ -55,6 +61,11 @@ class MainActivity : AppCompatActivity(), Main,
             navigationView,
             Navigation.findNavController(this, R.id.fragment)
         )
+        networkClient.getPopularMoviesByPage(1)
+            .subscribe{ t1, t2 ->
+                var a = 3
+                a++
+            }
     }
 
     override fun onDestroy() {

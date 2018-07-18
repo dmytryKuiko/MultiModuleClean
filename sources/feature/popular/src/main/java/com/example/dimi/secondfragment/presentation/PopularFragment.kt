@@ -10,6 +10,7 @@ import com.example.dimi.common.main.FragmentNavigator
 import com.example.dimi.common.main.Main
 import com.example.dimi.common.main.MainPresenter
 import com.example.dimi.secondfragment.R
+import com.example.dimi.secondfragment.adapter.PopularAdapter
 import com.example.dimi.secondfragment.di.PopularComponent
 import kotlinx.android.synthetic.main.fragment_popular.*
 import javax.inject.Inject
@@ -18,6 +19,10 @@ class PopularFragment : BaseFragment() {
 
     private val detailComponent: PopularComponent by lazy {
         PopularComponent.init((activity as Main).getMainScreenComponent())
+    }
+
+    private val popularAdapter: PopularAdapter by lazy {
+        PopularAdapter()
     }
 
     private var navigator: FragmentNavigator? = null

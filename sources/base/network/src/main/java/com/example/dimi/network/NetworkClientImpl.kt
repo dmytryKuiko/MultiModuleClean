@@ -3,6 +3,7 @@ package com.example.dimi.network
 import com.example.dimi.common.network.GenreWrapper
 import com.example.dimi.common.network.NetworkClient
 import com.example.dimi.common.network.Movie
+import com.example.dimi.common.network.PopularMovies
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
@@ -26,6 +27,9 @@ class NetworkClientImpl
     override fun getGenres(): Single<out GenreWrapper> = retrofitService.getGenres()
 
     override fun getMovieById(id: Int): Single<out Movie> = retrofitService.getMovieById(id)
+
+    override fun getPopularMoviesByPage(page: Int): Single<out PopularMovies> =
+        retrofitService.getPopularMoviesByPage(page)
 
     private fun getOkHttp(): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(HeaderInterceptor())

@@ -6,8 +6,8 @@ import com.example.dimi.database.MovieDatabase
 import io.reactivex.Flowable
 
 @Dao
-abstract class RetrofitModelDao: BaseDao<MovieDatabase> {
+abstract class MovieDao: BaseDao<MovieDatabase> {
 
-    @Query("SELECT * FROM ${TableNames.TABLE_RETROFIT_MODEL}")
+    @Query("SELECT * FROM ${TableNames.TABLE_MOVIE}")
     abstract fun getAllProducts(): Flowable<List<MovieDatabase>>
 }

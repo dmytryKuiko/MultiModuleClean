@@ -7,5 +7,5 @@ import com.example.dimi.database.MovieDatabase
 @Database(entities = [(MovieDatabase::class)], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun retrofitModelDao(): RetrofitModelDao
+    abstract fun movieDao(): MovieDao
 }
