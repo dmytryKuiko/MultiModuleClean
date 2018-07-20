@@ -1,8 +1,8 @@
-package com.example.dimi.common
+package com.example.dimi.common.schedulers
 
 import io.reactivex.Scheduler
 
-interface SchedulersProvider {
+interface SchedulersFactory {
 
     fun ui(): Scheduler
 

@@ -28,8 +28,9 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':common')
     implementation project(':network')
-    implementation project(':main-screen')
     implementation project(':database')
+    implementation project(':schedulers')
+    implementation project(':main-screen')
 
     implementation libraries.kotlin
     implementation libraries.appCompatV7

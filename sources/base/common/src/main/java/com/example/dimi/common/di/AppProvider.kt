@@ -1,3 +1,3 @@
 package com.example.dimi.common.di
 
-interface AppProvider : NetworkProvider, DatabaseProvider
+interface AppProvider : NetworkProvider, DatabaseProvider, SchedulersProvider
