@@ -1,4 +1,4 @@
-package com.example.dimi.common
+package com.example.dimi.common.model
 
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.MutableLiveData
