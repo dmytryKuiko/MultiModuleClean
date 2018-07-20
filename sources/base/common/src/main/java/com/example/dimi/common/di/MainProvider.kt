@@ -1,7 +1,7 @@
 package com.example.dimi.common.di
 
-import com.example.dimi.common.main.MainPresenter
+import com.example.dimi.common.main.MainViewModel
 
 interface MainProvider {
-    fun provideMainPresenter(): MainPresenter
+    fun provideMainViewModel(): MainViewModel
 }
