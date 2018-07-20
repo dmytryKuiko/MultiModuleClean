@@ -13,14 +13,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 class NetworkClientImpl
-@Inject constructor() : NetworkClient {
+@Inject constructor(
+    okHttpClient: OkHttpClient,
+    gsonConverterFactory: GsonConverterFactory,
+    rxJava2CallAdapterFactory: RxJava2CallAdapterFactory
+) : NetworkClient {
 
     private val retrofitService: RetrofitService by lazy {
         Retrofit.Builder()
             .baseUrl(SERVER_URL)
-            .client(getOkHttp())
-            .addConverterFactory(getConverterFactory())
-            .addCallAdapterFactory(getCallAdapterFactory())
+            .client(okHttpClient)
+            .addConverterFactory(gsonConverterFactory)
+            .addCallAdapterFactory(rxJava2CallAdapterFactory)
             .build().create(RetrofitService::class.java)
     }
 
@@ -30,15 +34,6 @@ class NetworkClientImpl
 
     override fun getPopularMoviesByPage(page: Int): Single<out PopularMovies> =
         retrofitService.getPopularMoviesByPage(page)
-
-    private fun getOkHttp(): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(HeaderInterceptor())
-        .build()
-
-    private fun getConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
-
-    private fun getCallAdapterFactory(): RxJava2CallAdapterFactory =
-        RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io())
 
     companion object {
         const val SERVER_URL = "https://api.themoviedb.org/"
