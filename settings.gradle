@@ -13,6 +13,9 @@ project(':database').projectDir = new File(rootDir, 'sources/base/database')
 include ':paginator'
 project(':paginator').projectDir = new File(rootDir, 'sources/base/paginator')
 
+include ':schedulers'
+project(':schedulers').projectDir = new File(rootDir, 'sources/base/schedulers')
+
 include ':main-screen'
 project(':main-screen').projectDir = new File(rootDir, 'sources/feature/main-screen')
 
