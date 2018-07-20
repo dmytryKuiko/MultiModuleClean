@@ -10,6 +10,9 @@ project(':network').projectDir = new File(rootDir, 'sources/base/network')
 include ':database'
 project(':database').projectDir = new File(rootDir, 'sources/base/database')
 
+include ':paginator'
+project(':paginator').projectDir = new File(rootDir, 'sources/base/paginator')
+
 include ':main-screen'
 project(':main-screen').projectDir = new File(rootDir, 'sources/feature/main-screen')
 

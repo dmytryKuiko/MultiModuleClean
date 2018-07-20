@@ -1,0 +1,10 @@
+apply from: rootProject.file('base-android.gradle')
+
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation project(':common')
+    implementation libraries.rxJava2
+    kapt libraries.daggerCompiler
+    implementation libraries.dagger
+}

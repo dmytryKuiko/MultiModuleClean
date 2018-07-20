@@ -7,7 +7,7 @@ apply plugin: 'kotlin-kapt'
 dependencies {
     implementation project(':popular')
     implementation project(':detail')
-
+    implementation project(':paginator')
     implementation libraries.supportDesign
     kapt libraries.daggerCompiler
     implementation libraries.rxJava2

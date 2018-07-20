@@ -10,7 +10,10 @@ import com.example.dimi.network.di.DaggerNetworkComponent
 import com.example.dimi.network.di.NetworkComponent
 import dagger.Component
 
-@Component(modules = [AppModule::class], dependencies = [NetworkProvider::class, DatabaseProvider::class])
+@Component(
+    dependencies = [NetworkProvider::class, DatabaseProvider::class],
+    modules = [AppModule::class]
+)
 interface AppComponent : AppProvider {
     fun inject(app: AppImpl)
 
